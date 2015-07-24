@@ -1,0 +1,63 @@
+<div class="row">
+  <div id="app_menu" class="col-md-3">
+    <h3 class="mid app_headline">{{appTitle}}<a title="Back to Start" id="back-to-start" href="/" target="_self" class="glyphicon glyphicon-pencil"></a></h3>
+    <input id="app_search" type="search" data-ng-model="app_search" placeholder="Search...">
+    <ul id="menu-ul" data-pw-tree data-family="menu" data-get-keys="getKeys" data-toggle-state="toggleState" data-toggle="toggle"></ul>
+  </div>
+
+  <div class="content_container col-md-9">
+    <div class="col-md-12" data-ng-repeat="result in results">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{result.name}}<span class="app_apiversion">API Version <span class="badge">{{result.version}}</span></span></div>
+        <div class="panel-body">
+          <span style="display: block; width: 100%">{{result.description}}</span>
+          <div class="bs bs-inputs" data-example-id="default-well">
+            <div class="well">
+              <table>
+                <tr data-ng-repeat="(key, val) in result.inputs">
+                  <td>{{key}}: &nbsp;</td> <td data-ng-show="val.required" style="color: #5cb85c">required</td><td data-ng-show="!val.required" style="color: #d9534f">optional</td>
+                </tr>
+            </table>
+            </div>
+          </div>
+          <div class="bs bs-output" data-example-id="default-well">
+            <div class="well">
+              <pre data-pretty-json="result.outputExample"  />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <ul id="app_menu">
+  <li>Book 1
+    <ul>
+      <li><a href="someHref">Chapter 1</a></li>
+      <li><a href="someHref">Chapter 2</a></li>
+      <li><a href="someHref">Chapter 3</a></li>
+      <li><a href="someHref">Chapter 4</a></li>
+    </ul>
+  </li>
+  <li>Book 2
+    <ul>
+      <li><a href="someHref">Chapter 1</a></li>
+      <li><a href="someHref">Chapter 2</a></li>
+      <li>Chapter 3
+        <ul>
+          <li><a href="listCollapseExample.html">Ex 1</a></li>
+          <li><a href="someHref">Ex 2</a></li>
+        </ul>
+      </li>
+      <li><a href="javascript:notA();">Chapter 4</a></li>
+    </ul>
+  </li>
+  <li>Book 3
+    <ul>
+      <li><a href="someHref">Chapter 1</a></li>
+      <li><a href="someHref">Chapter 2</a></li>
+      <li><a href="someHref">Chapter 3</a></li>
+      <li><a href="someHref">Chapter 4</a></li>
+    </ul>
+  </li>
+</ul> -->

@@ -1,0 +1,239 @@
+html, body, section {
+  height: 100%
+}
+body {
+  overflow: hidden;
+}
+pre {
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+}
+h1 {
+  margin-bottom: 20px;
+}
+#server_search {
+  font-size: 14px;
+  font-weight: 100;
+  background: transparent;
+  color: white;
+  border: 1px solid white !important;
+}
+.mid {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+.marginTop50 {
+  margin-top: 50px;
+}
+.marginTop25 {
+  margin-top: 25px;
+}
+.paddingLeft0 {
+  padding-left: 0px;
+}
+.lastUrlLi {
+  font-size: 18px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: 100;
+  position: relative;
+}
+.lastUrlLi-delete{
+  position: absolute;
+  right: -9px;
+  top: -9px;
+  background: darkslategray;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  border: 1px solid;
+  box-sizing: border-box;
+  font-family: helvetica;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.parenticon {
+  position: relative;
+  left: 10px;
+  top: 0px;
+  font-size: 14px;
+}
+.app_headline {
+  color: #ffffff;
+  font-weight: 100;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+.server_headline {
+  color: white;
+  height: 10%;
+  font-weight: 100;
+}
+
+#app_search:focus {
+  outline: none;
+}
+#app_menu {
+  background: darkslategrey;
+  padding: 30px;
+  list-style: none;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  overflow-y: auto;
+}
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+li {
+  color: white;
+  line-height: 3.2rem;
+  list-style: none;
+  font-size: 2rem;
+}
+.row {
+  margin: 0;
+}
+#back-to-start {
+  color: white;
+  font-size: 1.5rem;
+  left: 10px;
+  border: 1px solid;
+  position: relative;
+  padding: 7px;
+  border-radius: 30px;
+  top: 0px;
+}
+#back-to-start:hover {
+  text-decoration: none;
+}
+.content_container {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.panel-default>.panel-heading {
+    background-image: -webkit-linear-gradient(top,darkslategrey 0,darkslategrey 100%);
+    color: white;
+    font-size: 2rem;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  color: darkslategrey !important;
+  background-color: white !important;
+  border-color: white !important;
+  border: -1px solid !important;
+  outline: none !important;
+}
+
+input[type="text"], textarea {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+.app_apiversion {
+  float: right;
+  font-size: 18px;
+}
+#app_search {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 30px;
+  background: transparent;
+  border: 2px solid white !important;
+  height: 30px;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.bs {
+  border: none !important;
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+  border-color: #ddd;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 49%;
+  float: left;
+  margin-top: 20px;
+}
+.bs-inputs {
+  margin-right: 2%;
+}
+.bs-inputs:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  content: "Inputs";
+}
+
+.bs-output:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  content: "Output Example";
+}
+
+.panel-body {
+  padding: 15px;
+  padding-bottom: 0;
+  font-size: 17px;
+}
+#menu-ul {
+  padding-left: 0px;
+}
+.badge {
+  background-color: rgba(255,255,255,0.2) !important;
+  font-size: 15px;
+}
+
+.well {
+  word-wrap: break-word;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+.label-default {
+  background-color: transparent;
+  border: 1px solid;
+}
+
+#server_container {
+  height: 100%;
+  background: darkslategray;
+}

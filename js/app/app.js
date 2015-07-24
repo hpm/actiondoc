@@ -1,8 +1,8 @@
 angular.module('ActionDocApp', ['ngRoute','ngCookies', 'ngStorage' ,'pascalprecht.translate', 'pwTreeHelper', 'ngPrettyJson'])
-    .config(function($translateProvider, ActionDocConfig, $routeProvider) {
+    .config(function($translateProvider) {
       $translateProvider.determinePreferredLanguage();
     })
-    .run(function ($document, $translate, ActionDocConfig, ActionDocService) {
+    .run(function ($document, $translate, ActionDocConfig) {
         $translate.use(ActionDocConfig.fallbackLanguage);
         $translate.fallbackLanguage(ActionDocConfig.fallbackLanguage);
         $document.ready(function () {

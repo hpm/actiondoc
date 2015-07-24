@@ -1,28 +1,42 @@
 <div class="row">
-  <div id="app-menu" class="col-md-3">
-    <h3 class="mid app-headline">{{appTitle}}<a title="Back to Start" id="back-to-start" href="/" target="_self" class="glyphicon glyphicon-pencil"></a></h3>
-    <input id="app-search" type="text" data-ng-model="appSearch" placeholder="Search...">
-    <ul id="menu-ul" data-pw-tree data-family="menu" data-get-keys="getKeys" data-toggle-state="toggleState" data-toggle="toggle"></ul>
+
+  <!-- left menu -->
+  <div class="col-xs-3 ad-menu">
+  
+    <!-- header -->
+    <div class="text-center col-xs-10 col-xs-offset-1">
+      <h3>{{appTitle}}<a title="Edit Server" href="/" target="_self" class="glyphicon glyphicon-pencil ad-change-server"></a></h3>
+      <form role="form">
+        <input type="search" data-ng-model="search" placeholder="Search…" class="form-control" />
+      </form>
+    </div>
+    
+    <!-- main menu -->
+    <div class="col-xs-10 col-xs-offset-1">
+      <ul id="menu-ul" data-pw-tree data-family="menu" data-get-keys="getKeys" data-toggle-state="toggleState" data-toggle="toggleMenu"></ul>
+    </div>
   </div>
 
-  <div class="content-container col-md-9">
-    <div class="col-md-12" data-ng-repeat="result in results">
+  <!-- content -->
+  <div class="col-xs-9 col-xs-offset-3">
+    <div class="col-xs-12" data-ng-repeat="result in results">
       <div class="panel panel-default">
-        <div class="panel-heading">{{result.name}}<span class="app-apiversion">API Version <span class="badge">{{result.version}}</span></span></div>
-        <div class="panel-body">
-          <span style="display: block; width: 100%">{{result.description}}</span>
-          <div class="bs bs-inputs" data-example-id="default-well">
+        <div class="panel-heading"><span class="ad-code">{{result.name}}</span><span class="pull-right">API Version <span class="badge">{{result.version}}</span></span></div>
+        <div class="panel-body clearfix">
+          <p>{{result.description}}</p>
+          <div class="bs bs-inputs">
             <div class="well">
               <table>
                 <tr data-ng-repeat="(key, val) in result.inputs">
-                  <td>{{key}}: &nbsp;</td> <td data-ng-show="val.required" style="color: #5cb85c">required</td><td data-ng-show="!val.required" style="color: #d9534f">optional</td>
+                  <td class="ad-key ad-code">{{key}}</td>
+                  <td class="ad-value" data-ng-class="{'ad-required': val.required, 'ad-optional': !val.required}">{{val.required ? 'required' : 'optional'}}</td>
                 </tr>
             </table>
             </div>
           </div>
-          <div class="bs bs-output" data-example-id="default-well">
+          <div class="bs bs-output">
             <div class="well">
-              <pre data-pretty-json="result.outputExample"  />
+              <pre class="ad-output" data-pretty-json="result.outputExample"  />
             </div>
           </div>
         </div>
@@ -30,34 +44,3 @@
     </div>
   </div>
 </div>
-<!-- <ul id="app_menu">
-  <li>Book 1
-    <ul>
-      <li><a href="someHref">Chapter 1</a></li>
-      <li><a href="someHref">Chapter 2</a></li>
-      <li><a href="someHref">Chapter 3</a></li>
-      <li><a href="someHref">Chapter 4</a></li>
-    </ul>
-  </li>
-  <li>Book 2
-    <ul>
-      <li><a href="someHref">Chapter 1</a></li>
-      <li><a href="someHref">Chapter 2</a></li>
-      <li>Chapter 3
-        <ul>
-          <li><a href="listCollapseExample.html">Ex 1</a></li>
-          <li><a href="someHref">Ex 2</a></li>
-        </ul>
-      </li>
-      <li><a href="javascript:notA();">Chapter 4</a></li>
-    </ul>
-  </li>
-  <li>Book 3
-    <ul>
-      <li><a href="someHref">Chapter 1</a></li>
-      <li><a href="someHref">Chapter 2</a></li>
-      <li><a href="someHref">Chapter 3</a></li>
-      <li><a href="someHref">Chapter 4</a></li>
-    </ul>
-  </li>
-</ul> -->

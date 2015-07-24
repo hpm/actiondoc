@@ -1,7 +1,11 @@
 angular.module("ActionDocApp")
   .factory('ActionDocService', function($http,$location, $q) {
+  
+    // local vars
     var datas = null;
     var urlLink = null;
+
+    // build recursive list of functions split by "/" 
     function addChild(obj, pathArray) {
       var key = pathArray.shift();
       if(!(key in obj)) {
@@ -12,38 +16,62 @@ angular.module("ActionDocApp")
       }
       addChild(obj[key], pathArray);
     }
+
+
     var ActiondocService = {
         getDoc: function(url) {
           return $q(function(resolve, reject) {
-            if(url) {
-              if(url.indexOf("http://") < 0) {
+            url = String(url);
+
+            if (url) {
+                // auto-add http
+              if ( url.substr(0,4) != 'http' ) {
                 url = "http://" + url;
               }
-              if(url.indexOf("/showDocumentation") < 0) {
-                url = url + "/showDocumentation";
+
+              // auto-add /showDocumentation
+              if( url.indexOf("/", 10) == -1) {
+                url += "/showDocumentation";
               }
+
+              // try to load from url
               $http.get(url).then(function(data) {
                 urlLink = url;
-                datas = data.data.documentation;
-                resolve(true);
+                if ( data && data.data && data.data.documentation ) {
+                    datas = data.data.documentation;
+                    resolve();
+                }
+                else {
+                    reject("No documentation found");
+                }
               }, function(status) {
                 reject(status);
               });
             }
+            
+            // no url given
             else {
-              reject("Empty");
+              reject("Missing url");
             }
           });
         },
+
+        // return current url
         getUrl: function() {
           return urlLink;
         },
+        
+        // return current title
         getTitle: function() {
           return urlLink.slice(7).slice(0, urlLink.length - 25);
         },
+        
+        // get raw data
         getData: function() {
           return datas;
         },
+        
+        // get menu structure
         getMenuStructure: function() {
           var menu = {};
           return $q(function(resolve, reject) {
@@ -59,7 +87,14 @@ angular.module("ActionDocApp")
             resolve(menu);
           });
         },
+        
+        // get details by id
         getDetailsEntry: function(key) {
+            return datas[key] ? [datas[key][1]] : [];
+        },
+        
+        // search details
+        searchDetailsEntry: function(key) {
           var results = [];
           for(var i in datas) {
             if(!key || i.indexOf(key) > -1) {
@@ -70,6 +105,6 @@ angular.module("ActionDocApp")
         }
 
     };
-    return ActiondocService;
 
-  });
+    return ActiondocService;
+});

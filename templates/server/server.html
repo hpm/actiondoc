@@ -1,37 +1,38 @@
-<div id="server-container">
-  <div class="col-md-8 col-md-offset-2">
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 text-center">
     <form role="form">
-         <h1 class="mid server-headline">ActionDoc</h1>
+         <h1>ActionDoc</h1>
          <div class="input-group server_input_group">
-            <input id="server-search" data-ng-model="inputUrl" type="text" class="form-control" placeholder="{{'server_input_placeholder' | translate}}">
+            <input id="server-search" data-ng-model="inputUrl" type="text" data-ng-init="inputUrl = ''" class="form-control" placeholder="{{'server_input_placeholder' | translate}}">
             <span class="input-group-btn">
-              <button data-ng-click="progressUrl()" class="btn btn-primary">{{'server_start' | translate}}</button>
+              <button data-ng-click="loadUrl(inputUrl)" class="btn btn-primary">{{'server_start' | translate}}</button>
             </span>
         </div>
     </form>
 
     <div data-ng-show="lastUrls.length > 0">
-      <div class="marginTop25 paddingLeft0">
-        <span class="pointer label label-default lastUrlLi" data-ng-repeat="lastUrl in lastUrls track by $index" data-ng-click="progressUrl('last', $index)">{{lastUrl.slice(7).slice(0, lastUrl.length - 25)}}<span data-ng-click="deleteSingleLastUrl(lastUrl)" class="lastUrlLi-delete">x</span></span>
-        <span class="pointer label label-danger lastUrlLi" data-toggle="modal" data-target="#myModal">Clear List</span>
+      <div data-ng-repeat="lastUrl in lastUrls track by $index">
+          <button class="btn btn-primary" data-ng-click="loadUrl(lastUrl)">{{lastUrl.slice(7).slice(0, lastUrl.length - 25)}}</button><button class="btn btn-danger" data-ng-click="deleteLastUrl(lastUrl)">x</button>
       </div>
+      <hr />
+      <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#ad-clear-list">Clear List</span>
     </div>
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="ad-clear-list" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Clear last Url List</h4>
+          <h4 class="modal-title" id="myModalLabel">Clear Server-List</h4>
         </div>
         <div class="modal-body">
-          Are you sure to clear the list?
+          Do you really want to remove all servers from the list?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="lastUrls.splice(0, lastUrls.length)">Yes, clear it!</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">No, go back!</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">No, go back…</button>
         </div>
       </div>
     </div>

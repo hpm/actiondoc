@@ -1,0 +1,28 @@
+{
+  "name": "actiondoc",
+  "version": "1.0.0",
+  "description": "ActionDoc",
+  "authors": [
+    "Robin Würfel",
+    "Mario Micklisch"
+  ],
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-cookies": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "ng-prettyjson": "~0.1.9",
+    "ngstorage": "~0.3.7",
+    "angular-translate": "~2.7.2",
+    "angular-bootstrap": "~0.13.1",
+    "fastclick": "~1.0.6",
+    "bootstrap": "~3.3.5"
+  }
+}

@@ -1,57 +1,73 @@
 angular.module('ActionDocApp')
-  .controller('AppCtrl', function($scope, $location, $timeout,$route, ActionDocService, ActionDocConfig) {
+  .controller('AppCtrl', function($scope, $location, ActionDocService, $route) {
+    // init vars
     $scope.toggleState = {};
-    $scope.appTitle = "Loading...";
+    $scope.appTitle = "Loading…";
     $scope.appSearch = $location.search().search || "";
-    if($location.search().url) {
-    ActionDocService.getDoc($location.search().url)
-        .then(function(status) {
-          $scope.appTitle = ActionDocService.getTitle();
-          document.title = "Actiondoc: " + ActionDocService.getTitle();
-          $scope.results = ActionDocService.getDetailsEntry($scope.appSearch);
-          $scope.menu = ActionDocService.getMenuStructure().then(function(menu) {
-            $scope.menu = menu;
-          });
+    var url = $location.search().url;
 
-        })
-        .catch(function(reason) {
-          var error = reason.statusText || reason;
-          alert('Error: ' + error);
-          $location.path("/");
-          $location.search('url', null);
-        });
+    // load documentation url
+    if (url) {
+        ActionDocService.getDoc(url)
+            .then(function(status) {
+                $scope.appTitle = ActionDocService.getTitle() || url;
+                $scope.results = ActionDocService.getDetailsEntry($scope.appSearch);
+            })
+            .catch(function(reason) {
+                console.log('Error: ', reason);
+                $location.path("/");
+                $location.search('url', null);
+            })
+            .then(function () {
+                ActionDocService.getMenuStructure().then(function(menu) {
+                    $scope.menu = menu;
+                });
+            })
+            .then(function () {
+                if ($location.search().function) {
+                    var name = $location.search().function;
+                    var details = ActionDocService.getDetailsEntry(name);
+                    if ( !details.length ) {
+                        details = ActionDocService.searchDetailsEntry(name);
+                    }
+                    $scope.results = details;
+                }
+            });
     }
     else {
-      $location.path("/");
-      $location.search('url', null);
+        $location.path("/");
     }
-    $scope.getKeys = Object.keys;
-    $scope.toggle = function(name) {
-      for (var i in $scope.toggleState) {
-        if(name == i) {
-          if(!$scope.toggleState[i]) {
-            //[].splice.call($scope.results.splice(0, $scope.results.length), [0,0].concat(ActionDocService.getDetailsEntry(name)));
-            $scope.results = ActionDocService.getDetailsEntry(name);
-          }
-          else {
-            $scope.results = ActionDocService.getDetailsEntry();
-          }
-          $scope.toggleState[i] = !$scope.toggleState[i];
-          continue;
-        }
-        $scope.toggleState[i] = (name.indexOf(i) == 0);
-      }
+
+    // helper to get object keys
+    $scope.getKeys = function (obj) {
+        return typeof(obj) == 'object' ? Object.keys(obj) : [];
     };
 
-    $scope.$watch('appSearch', function() {
-      $scope.results = ActionDocService.getDetailsEntry($scope.appSearch);
-      $location.search('search', $scope.appSearch);
+    // toggle menu tree displays
+    $scope.toggleMenu = function(name) {
+        if ( typeof($scope.toggleState[name]) !== 'undefined' ) {
+            $scope.toggleState[name] = !$scope.toggleState[name];
+            var details = ActionDocService.getDetailsEntry(name);
+            if ( !details.length ) {
+                details = ActionDocService.searchDetailsEntry(name);
+            }
+            $scope.results = details;
+            $location.search('function', name);
+        }
+    };
+
+    // watch for search changes and trigger live search
+    $scope.$watch('search', function() {
+      $scope.results = ActionDocService.searchDetailsEntry($scope.search);
+      $location.search('search', $scope.search);
     });
 
+    // prevent "reload" behaviour on parameter changes
     var lastRoute = $route.current;
     $scope.$on('$locationChangeSuccess', function (event) {
       if (lastRoute.$$route.originalPath === $route.current.$$route.originalPath) {
           $route.current = lastRoute;
       }
     });
-  });
+
+});

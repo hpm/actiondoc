@@ -1,144 +1,39 @@
-html, body, section {
-  height: 100%
-}
-body {
-  overflow: hidden;
-}
-pre {
-  background-color: transparent;
-  border: none;
-  outline: none !important;
-}
-#server-search {
-  font-size: 1.7rem;
-  font-weight: 100;
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff !important;
-}
-.mid {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-}
-.marginTop50 {
-  margin-top: 50px;
-}
-.marginTop25 {
-  margin-top: 25px;
-}
-.paddingLeft0 {
-  padding-left: 0px;
-}
-.lastUrlLi {
-  font-size: 1.8rem;
-  margin-right: 2rem;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  font-weight: 100;
-  position: relative;
-}
-.lastUrlLi-delete{
-  position: absolute;
-  right: -1rem;
-  top: -1rem;
-  background: #2F4F4F;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 2rem;
-  font-size: 1.5rem;
-  border: 1px solid;
-  box-sizing: border-box;
-  font-family: helvetica;
+/**
+ * main menu
+ **/
+.ad-menu {
+    position: fixed;
+    height: 100%;
+    overflow-y: scroll;
 }
 
-.pointer {
-  cursor: pointer;
-}
-.parenticon {
-  position: relative;
-  left: 0.5rem;
-  top: 0rem;
-  font-size: 1.4rem;
-}
-.app-headline {
-  color: #ffffff;
-  font-weight: 100;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  position: relative;
-}
-.server-headline {
-  color: #ffffff;
-  height: 10%;
-  font-weight: 100;
-}
-
-#app-search:focus {
-  outline: none;
-}
-#app-menu {
-  background: #2F4F4F;
-  padding: 3rem;
-  list-style: none;
-  height: 100%;
-  overflow-x: hidden;
-  position: relative;
-  overflow-y: auto;
-}
-ul {
+.ad-menu ul {
   list-style: none;
   padding-left: 2rem;
 }
-li {
-  color: #ffffff;
+
+.ad-menu li {
   line-height: 3.2rem;
   list-style: none;
-  font-size: 2rem;
-}
-.row {
-  margin: 0;
-}
-#back-to-start {
-  color: #ffffff;
   font-size: 1.5rem;
+}
+
+.ad-menu li .glyphicon {
+    font-size: 1rem;
+}
+
+
+.ad-change-server {
+  font-size: 1rem;
   left: 1rem;
   border: 1px solid;
   position: relative;
   padding: 0.7rem;
   border-radius: 3rem;
-  top: 0px;
-}
-#back-to-start:hover {
-  text-decoration: none;
-}
-.content-container {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  top: 0;
 }
 
-.app-apiversion {
-  float: right;
-  font-size: 1.6rem;;
-}
-#app-search {
-  position: relative;
-  top: 0rem;
-  left: 0rem;
-  width: 100%;
-  margin-bottom: 3rem;
-  background: transparent;
-  border: 1px solid #ffffff !important;
-  height: 3rem;
-  color: #ffffff;
-  padding: 1rem;
-  font-size: 1.6rem;
-  margin-top: 3rem;
-}
+
 
 .bs {
   border: none !important;
@@ -189,23 +84,6 @@ li {
   content: "Output Example";
 }
 
-.panel-body {
-  padding: 15px;
-  padding-bottom: 0;
-  font-size: 17px;
-}
-#menu-ul {
-  padding-left: 0px;
-}
-.badge {
-  background-color: rgba(255,255,255,0.2) !important;
-  font-size: 15px;
-}
-
-.well {
-  word-wrap: break-word;
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-}
 
 .label-default {
   background-color: transparent;
@@ -215,4 +93,38 @@ li {
 #server-container {
   height: 100%;
   background: darkslategray;
+}
+
+
+/**
+ * variable listings
+ */
+.ad-required {
+    color: #5cb85c;
+}
+
+.ad-optional {
+    color: #d9534f;
+}
+
+.ad-key {
+    padding-right: 1rem;
+}
+
+
+/**
+ * code displays
+ */
+.ad-output pre {
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+}
+
+
+/**
+ * helper classes
+ */
+.ad-code {
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }

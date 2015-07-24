@@ -1,4 +1,4 @@
-angular.module('ActionDocApp', ['ngRoute','ngCookies', 'ngStorage' ,'pascalprecht.translate', 'pwTreeHelper', 'ngPrettyJson'])
+angular.module('ActionDocApp', ['ngRoute','ngCookies', 'ngStorage' ,'pascalprecht.translate', 'pwTreeHelper', 'ngPrettyJson', 'ui.bootstrap', 'angularSpinner'])
     .config(function($translateProvider) {
       $translateProvider.determinePreferredLanguage();
     })

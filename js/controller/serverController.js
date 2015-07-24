@@ -5,7 +5,7 @@ angular.module('ActionDocApp')
     $scope.lastUrls = $localStorage.lastUrls || null;
 
     // load url
-    $scope.loadUrl = function(serverUrl) {
+    $scope.testUrl = function(serverUrl) {
         ActionDocService.getDoc(serverUrl)
             .then(function(status) {
                 var url = ActionDocService.getUrl();
@@ -26,4 +26,7 @@ angular.module('ActionDocApp')
         $scope.deleteLastUrl = function(url) {
             $scope.lastUrls.splice($scope.lastUrls.indexOf(url),1);
         }
-  });
+  })
+  .filter('encodeURIComponent', function() {
+    return window.encodeURIComponent;
+});

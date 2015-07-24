@@ -24,14 +24,12 @@ angular.module('ActionDocApp')
                 });
             })
             .then(function () {
-                if ($location.search().function) {
-                    var name = $location.search().function;
-                    var details = ActionDocService.getDetailsEntry(name);
-                    if ( !details.length ) {
-                        details = ActionDocService.searchDetailsEntry(name);
-                    }
-                    $scope.results = details;
+                var name = $location.search().function;
+                var details = ActionDocService.getDetailsEntry(name);
+                if ( !details.length ) {
+                    details = ActionDocService.searchDetailsEntry(name);
                 }
+                $scope.results = details;
             });
     }
     else {

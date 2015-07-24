@@ -1,14 +1,14 @@
 <div class="row">
-  <div id="app_menu" class="col-md-3">
-    <h3 class="mid app_headline">{{appTitle}}<a title="Back to Start" id="back-to-start" href="/" target="_self" class="glyphicon glyphicon-pencil"></a></h3>
-    <input id="app_search" type="search" data-ng-model="app_search" placeholder="Search...">
+  <div id="app-menu" class="col-md-3">
+    <h3 class="mid app-headline">{{appTitle}}<a title="Back to Start" id="back-to-start" href="/" target="_self" class="glyphicon glyphicon-pencil"></a></h3>
+    <input id="app-search" type="text" data-ng-model="appSearch" placeholder="Search...">
     <ul id="menu-ul" data-pw-tree data-family="menu" data-get-keys="getKeys" data-toggle-state="toggleState" data-toggle="toggle"></ul>
   </div>
 
-  <div class="content_container col-md-9">
+  <div class="content-container col-md-9">
     <div class="col-md-12" data-ng-repeat="result in results">
       <div class="panel panel-default">
-        <div class="panel-heading">{{result.name}}<span class="app_apiversion">API Version <span class="badge">{{result.version}}</span></span></div>
+        <div class="panel-heading">{{result.name}}<span class="app-apiversion">API Version <span class="badge">{{result.version}}</span></span></div>
         <div class="panel-body">
           <span style="display: block; width: 100%">{{result.description}}</span>
           <div class="bs bs-inputs" data-example-id="default-well">

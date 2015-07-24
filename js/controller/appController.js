@@ -2,13 +2,13 @@ angular.module('ActionDocApp')
   .controller('AppCtrl', function($scope, $location, $timeout,$route, ActionDocService, ActionDocConfig) {
     $scope.toggleState = {};
     $scope.appTitle = "Loading...";
-    $scope.app_search = $location.search().search || "";
+    $scope.appSearch = $location.search().search || "";
     if($location.search().url) {
     ActionDocService.getDoc($location.search().url)
         .then(function(status) {
           $scope.appTitle = ActionDocService.getTitle();
-          document.title = + ActionDocService.getTitle();
-          $scope.results = ActionDocService.getDetailsEntry($scope.app_search);
+          document.title = "Actiondoc: " + ActionDocService.getTitle();
+          $scope.results = ActionDocService.getDetailsEntry($scope.appSearch);
           $scope.menu = ActionDocService.getMenuStructure().then(function(menu) {
             $scope.menu = menu;
           });
@@ -43,9 +43,9 @@ angular.module('ActionDocApp')
       }
     };
 
-    $scope.$watch('app_search', function() {
-      $scope.results = ActionDocService.getDetailsEntry($scope.app_search);
-      $location.search('search', $scope.app_search);
+    $scope.$watch('appSearch', function() {
+      $scope.results = ActionDocService.getDetailsEntry($scope.appSearch);
+      $location.search('search', $scope.appSearch);
     });
 
     var lastRoute = $route.current;

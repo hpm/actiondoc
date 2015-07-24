@@ -9,15 +9,12 @@ pre {
   border: none;
   outline: none !important;
 }
-h1 {
-  margin-bottom: 20px;
-}
-#server_search {
-  font-size: 14px;
+#server-search {
+  font-size: 1.7rem;
   font-weight: 100;
   background: transparent;
-  color: white;
-  border: 1px solid white !important;
+  color: #ffffff;
+  border: 1px solid #ffffff !important;
 }
 .mid {
   margin-left: auto;
@@ -35,22 +32,22 @@ h1 {
   padding-left: 0px;
 }
 .lastUrlLi {
-  font-size: 18px;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
   display: inline-block;
   font-weight: 100;
   position: relative;
 }
 .lastUrlLi-delete{
   position: absolute;
-  right: -9px;
-  top: -9px;
-  background: darkslategray;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  font-size: 15px;
+  right: -1rem;
+  top: -1rem;
+  background: #2F4F4F;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
   border: 1px solid;
   box-sizing: border-box;
   font-family: helvetica;
@@ -61,29 +58,29 @@ h1 {
 }
 .parenticon {
   position: relative;
-  left: 10px;
-  top: 0px;
-  font-size: 14px;
+  left: 0.5rem;
+  top: 0rem;
+  font-size: 1.4rem;
 }
-.app_headline {
+.app-headline {
   color: #ffffff;
   font-weight: 100;
   text-overflow: ellipsis;
   overflow: hidden;
   position: relative;
 }
-.server_headline {
-  color: white;
+.server-headline {
+  color: #ffffff;
   height: 10%;
   font-weight: 100;
 }
 
-#app_search:focus {
+#app-search:focus {
   outline: none;
 }
-#app_menu {
-  background: darkslategrey;
-  padding: 30px;
+#app-menu {
+  background: #2F4F4F;
+  padding: 3rem;
   list-style: none;
   height: 100%;
   overflow-x: hidden;
@@ -92,10 +89,10 @@ h1 {
 }
 ul {
   list-style: none;
-  padding-left: 20px;
+  padding-left: 2rem;
 }
 li {
-  color: white;
+  color: #ffffff;
   line-height: 3.2rem;
   list-style: none;
   font-size: 2rem;
@@ -104,35 +101,35 @@ li {
   margin: 0;
 }
 #back-to-start {
-  color: white;
+  color: #ffffff;
   font-size: 1.5rem;
-  left: 10px;
+  left: 1rem;
   border: 1px solid;
   position: relative;
-  padding: 7px;
-  border-radius: 30px;
+  padding: 0.7rem;
+  border-radius: 3rem;
   top: 0px;
 }
 #back-to-start:hover {
   text-decoration: none;
 }
-.content_container {
+.content-container {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 }
 .panel-default>.panel-heading {
-    background-image: -webkit-linear-gradient(top,darkslategrey 0,darkslategrey 100%);
-    color: white;
+    background-image: -webkit-linear-gradient(top,#2F4F4F 0,#2F4F4F 100%);
+    color: #ffffff;
     font-size: 2rem;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  color: darkslategrey !important;
-  background-color: white !important;
-  border-color: white !important;
+  color: #2F4F4F !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
   border: -1px solid !important;
   outline: none !important;
 }
@@ -142,23 +139,23 @@ input[type="text"], textarea {
   box-shadow:none !important;
   border:1px solid #ccc !important;
 }
-.app_apiversion {
+.app-apiversion {
   float: right;
-  font-size: 18px;
+  font-size: 1.6rem;;
 }
-#app_search {
+#app-search {
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: 0rem;
+  left: 0rem;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   background: transparent;
-  border: 2px solid white !important;
-  height: 30px;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 30px;
+  border: 1px solid #ffffff !important;
+  height: 3rem;
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1.6rem;
+  margin-top: 3rem;
 }
 
 .bs {
@@ -233,7 +230,7 @@ input[type="text"], textarea {
   border: 1px solid;
 }
 
-#server_container {
+#server-container {
   height: 100%;
   background: darkslategray;
 }

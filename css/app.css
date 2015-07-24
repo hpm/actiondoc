@@ -120,25 +120,7 @@ li {
   padding-bottom: 3rem;
   padding-top: 3rem;
 }
-.panel-default>.panel-heading {
-    background-image: -webkit-linear-gradient(top,#2F4F4F 0,#2F4F4F 100%);
-    color: #ffffff;
-    font-size: 2rem;
-}
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  color: #2F4F4F !important;
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
-  border: -1px solid !important;
-  outline: none !important;
-}
-
-input[type="text"], textarea {
-  outline: none;
-  box-shadow:none !important;
-  border:1px solid #ccc !important;
-}
 .app-apiversion {
   float: right;
   font-size: 1.6rem;;

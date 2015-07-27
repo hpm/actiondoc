@@ -10,6 +10,7 @@
         </div>
     </form>
 
+    <br />
     <table class="table table-striped table-hover" data-ng-show="lastUrls.length > 0">
       <thead>
         <th>&nbsp;</th>
@@ -19,7 +20,7 @@
       <tbody>
         <tr data-ng-repeat="lastUrl in lastUrls">
           <td><a href data-ng-href="#/app?url={{lastUrl | encodeURIComponent}}" class="btn btn-md btn-primary" data-ng-click="loadUrl(lastUrl)">Open</a></td>
-          <td><a href data-ng-href="#/app?url={{lastUrl | encodeURIComponent}}">{{lastUrl}}</a></td>
+          <td class="text-left"><a href data-ng-href="#/app?url={{lastUrl | encodeURIComponent}}">{{lastUrl}}</a></td>
           <td class="text-right"><button class="btn btn-md btn-danger" data-ng-click="deleteLastUrl(lastUrl)"><i class="glyphicon glyphicon-trash"></i></td>
         </tr>
       </tbody>

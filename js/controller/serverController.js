@@ -9,6 +9,9 @@ angular.module('ActionDocApp')
         ActionDocService.getDoc(serverUrl)
             .then(function(status) {
                 var url = ActionDocService.getUrl();
+                if ( !$localStorage.lastUrls ) {
+                    $localStorage.lastUrls = [];
+                }
                 if ( $localStorage.lastUrls.indexOf(serverUrl) == -1 ) {
                     $localStorage.lastUrls.push(serverUrl);
                 }

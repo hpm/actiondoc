@@ -1,4 +1,4 @@
-ActionDoc parses the standard documentation format any actionhero.js applications and creates a nicely browsable documentation.
+ActionDoc parses the standard documentation format of actionhero.js applications and creates a nicely browsable documentation.
 
 # Setup
 

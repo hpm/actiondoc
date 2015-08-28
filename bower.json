@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.3",
+    "angular": "~1.4.4",
     "angular-cookies": "~1.4.3",
     "angular-route": "~1.4.3",
     "ng-prettyjson": "~0.1.9",
@@ -25,5 +25,8 @@
     "fastclick": "~1.0.6",
     "bootstrap": "~3.3.5",
     "angular-spinner": "~0.6.2"
+  },
+  "resolutions": {
+    "angular": "1.4.4"
   }
 }

@@ -31,7 +31,7 @@ angular.module("ActionDocApp")
 
               // auto-add /showDocumentation
               if( url.indexOf("/", 10) == -1) {
-                url += "/showDocumentation";
+                url += "/api/showDocumentation";
               }
 
               // try to load from url

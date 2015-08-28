@@ -11,22 +11,18 @@
     </form>
 
     <br />
-    <table class="table table-striped table-hover" data-ng-show="lastUrls.length > 0">
-      <thead>
-        <th>&nbsp;</th>
-        <th>Documentation-Url</th>
-        <th>&nbsp;</th>
-      </thead>
+    <table class="table table-striped table-hover" data-ng-show="lastDocs.length > 0">
       <tbody>
-        <tr data-ng-repeat="lastUrl in lastUrls">
-          <td><a href data-ng-href="#/app?url={{lastUrl | encodeURIComponent}}" class="btn btn-md btn-primary" data-ng-click="loadUrl(lastUrl)">Open</a></td>
-          <td class="text-left"><a href data-ng-href="#/app?url={{lastUrl | encodeURIComponent}}">{{lastUrl}}</a></td>
-          <td class="text-right"><button class="btn btn-md btn-danger" data-ng-click="deleteLastUrl(lastUrl)"><i class="glyphicon glyphicon-trash"></i></td>
+        <tr data-ng-repeat="doc in lastDocs">
+          <td><a href data-ng-href="#/app?url={{doc.url | encodeURIComponent}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-list"></i></a></td>
+          <td class="text-left"><a href data-ng-href="#/app?url={{doc.url | encodeURIComponent}}">{{doc.title}}</a></td>
+          <td class="text-left"><a href data-ng-href="#/app?url={{doc.url | encodeURIComponent}}">{{doc.url}}</a></td>
+          <td class="text-right"><button class="btn btn-md btn-danger" data-ng-click="deleteLastDoc(doc)"><i class="glyphicon glyphicon-trash"></i></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <td class="text-right" colspan="3"><button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#ad-clear-list">Clear List</button></td>
+          <td class="text-right" colspan="4"><button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#ad-clear-list">Clear List</button></td>
         </tr>
       </tfoot>
     </table>
@@ -46,7 +42,7 @@
           <p>This can not be undone!</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="lastUrls.splice(0, lastUrls.length)">Yes, clear it!</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="lastDocs.splice(0, lastDocs.length)">Yes, clear it!</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">No, please don't…</button>
         </div>
       </div>

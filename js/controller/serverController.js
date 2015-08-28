@@ -2,18 +2,21 @@ angular.module('ActionDocApp')
   .controller('ServerCtrl', function($scope, $location, $localStorage, ActionDocService) {
 
     // storage of previously used urls
-    $scope.lastUrls = $localStorage.lastUrls || null;
+    $scope.lastDocs = $localStorage.lastDocs || null;
 
     // load url
     $scope.testUrl = function(serverUrl) {
         ActionDocService.getDoc(serverUrl)
             .then(function(status) {
                 var url = ActionDocService.getUrl();
-                if ( !$localStorage.lastUrls ) {
-                    $localStorage.lastUrls = [];
+                if ( !$localStorage.lastDocs ) {
+                    $localStorage.lastDocs = [];
                 }
-                if ( $localStorage.lastUrls.indexOf(serverUrl) == -1 ) {
-                    $localStorage.lastUrls.push(serverUrl);
+                if ( $localStorage.lastDocs.indexOf(serverUrl) == -1 ) {
+                    $localStorage.lastDocs.push({
+                        title: ActionDocService.getTitle(),
+                        url: ActionDocService.getUrl()
+                    });
                 }
                 
                 $location.path("/app");
@@ -26,8 +29,8 @@ angular.module('ActionDocApp')
         };
 
 
-        $scope.deleteLastUrl = function(url) {
-            $scope.lastUrls.splice($scope.lastUrls.indexOf(url),1);
+        $scope.deleteLastDoc = function(doc) {
+            $scope.lastDocs.splice($scope.lastDocs.indexOf(doc),1);
         }
   })
   .filter('encodeURIComponent', function() {

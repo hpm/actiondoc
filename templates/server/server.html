@@ -2,6 +2,7 @@
   <div class="col-xs-8 col-xs-offset-2 text-center">
     <form role="form">
          <h1>ActionDoc</h1>
+         <div data-ng-show="status.message" class="col-xs-12 alert" data-ng-class="{'alert-success': !status.errorCode, 'alert-danger': status.errorCode}">{{status.message}}</div>
          <div class="input-group server_input_group">
             <input id="server-search" data-ng-model="inputUrl" type="text" data-ng-init="inputUrl = ''" class="form-control" placeholder="{{'server_input_placeholder' | translate}}">
             <span class="input-group-btn">

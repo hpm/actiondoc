@@ -43,6 +43,9 @@ angular.module("ActionDocApp")
                 if ( data.data && data.data.serverInformation && data.data.serverInformation.serverName ) {
                     urlName = data.data.serverInformation.serverName;
                 }
+                else {
+                    urlName = '';
+                }
 
                 // save documentation list
                 if ( data && data.data && data.data.documentation ) {

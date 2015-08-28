@@ -3,6 +3,7 @@ angular.module("ActionDocApp")
   
     // local vars
     var datas = null;
+    var urlName = '';
     var urlLink = null;
 
     // build recursive list of functions split by "/" 
@@ -37,6 +38,13 @@ angular.module("ActionDocApp")
               // try to load from url
               $http.get(url).then(function(data) {
                 urlLink = url;
+
+                // if the server provides a name, remember it
+                if ( data.data && data.data.serverInformation && data.data.serverInformation.serverName ) {
+                    urlName = data.data.serverInformation.serverName;
+                }
+
+                // save documentation list
                 if ( data && data.data && data.data.documentation ) {
                     datas = data.data.documentation;
                     resolve();
@@ -63,7 +71,13 @@ angular.module("ActionDocApp")
         
         // return current title
         getTitle: function() {
-          return urlLink.slice(7).slice(0, urlLink.length - 25);
+            if ( urlName ) {
+                return urlName;
+            }
+            
+            var l = document.createElement("a");
+            l.href = urlLink;
+            return l.hostname;
         },
         
         // get raw data
